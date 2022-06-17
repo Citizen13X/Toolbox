@@ -118,7 +118,7 @@ void db_custom(
       }
     }
 
-    LOG_RAW(PF " | %s |%s|", FP(PTR(data, row_index)), Hex, Ascii);
+    LOG_RAW(PFx " | %s |%s|", FP(PTR(data, row_index)), Hex, Ascii);
   }
 
 CLEANUP:
@@ -180,7 +180,7 @@ void dd_custom(void* data, uint32_t num_bytes, uint32_t num_columns)
       strcat(Hex, value);
     }
 
-    LOG_RAW(PF " | %s", FP(PTR(data, row_index)), Hex);
+    LOG_RAW(PFx " | %s", FP(PTR(data, row_index)), Hex);
   }
 
 CLEANUP:
@@ -234,12 +234,12 @@ void dq_custom(void* data, uint32_t num_bytes, uint32_t num_columns)
       // Process HEX view
       sprintf(
         value,
-        PF64 "  ",
+        PFX64 "  ",
         FP64(*(uint64_t*)PTR(data, row_index + (column_index * ValueSize))));
       strcat(Hex, value);
     }
 
-    LOG_RAW(PF " | %s", FP(PTR(data, row_index)), Hex);
+    LOG_RAW(PFx " | %s", FP(PTR(data, row_index)), Hex);
   }
 
 CLEANUP:
@@ -299,7 +299,7 @@ void dw_custom(void* data, uint32_t num_bytes, uint32_t num_columns)
       strcat(Hex, value);
     }
 
-    LOG_RAW(PF " | %s", FP(PTR(data, row_index)), Hex);
+    LOG_RAW(PFx " | %s", FP(PTR(data, row_index)), Hex);
   }
 
 CLEANUP:

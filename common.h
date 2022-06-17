@@ -23,14 +23,17 @@
 #define PTR(ptr, off) ((void*)((uintptr_t)(ptr) + (intptr_t)(off)))
 
 #ifdef __64_BITS__
-#define PF      PF64
+#define PFx     PFx64
+#define PFX     PFX64
 #define FP(ptr) FP64(ptr)
 #else
-#define PF      "%08X"
+#define PFx     "%08x"
+#define PFX     "%08X"
 #define FP(ptr) (uint32_t)(ptr)
 #endif
 
-#define PF64      "%08X`%08X"
+#define PFx64     "%08x`%08x"
+#define PFX64     "%08X`%08X"
 #define FP64(ptr) (uint32_t)((uint64_t)(ptr) >> 0x20), \
                   (uint32_t)((uint64_t)(ptr)&UINT32_MAX)
 
